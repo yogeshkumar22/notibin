@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google'; // Using Inter as a common sans-serif
 import './globals.css';
