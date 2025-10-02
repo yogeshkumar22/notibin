@@ -1,6 +1,6 @@
+
 "use client";
 
-import { NotificationForm } from '@/components/notifications/NotificationForm';
 import { NotificationList } from '@/components/notifications/NotificationList';
 import { useNotifications } from '@/hooks/useNotifications';
 import { useToast } from '@/hooks/use-toast';
@@ -10,21 +10,11 @@ export default function NotificationsPage() {
   const { 
     notifications, 
     isLoading, 
-    addNotification, 
     deleteNotification, 
     clearAllNotifications,
     getUniqueAppNames 
   } = useNotifications();
   const { toast } = useToast();
-
-  const handleAddNotification = (data: Omit<Notification, 'id' | 'timestamp' | 'category' | 'summary'>) => {
-    addNotification(data);
-    toast({
-      title: "Notification Saved",
-      description: `"${data.title}" has been saved.`,
-      variant: "default", // Explicitly set for clarity, though it's the default
-    });
-  };
 
   const handleDeleteNotification = (id: string) => {
     deleteNotification(id);
@@ -47,7 +37,6 @@ export default function NotificationsPage() {
   if (isLoading) {
     return (
       <div className="space-y-8">
-        <CardSkeleton />
         <ListSkeleton />
       </div>
     );
@@ -55,7 +44,6 @@ export default function NotificationsPage() {
 
   return (
     <div className="space-y-8">
-      <NotificationForm onAddNotification={handleAddNotification} />
       <NotificationList
         notifications={notifications}
         onDelete={handleDeleteNotification}
@@ -66,20 +54,6 @@ export default function NotificationsPage() {
   );
 }
 
-
-function CardSkeleton() {
-  return (
-    <div className="p-6 border rounded-lg shadow-sm bg-card">
-      <Skeleton className="h-8 w-1/2 mb-4" />
-      <div className="space-y-4">
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-20 w-full" />
-        <Skeleton className="h-10 w-1/4" />
-      </div>
-    </div>
-  );
-}
 
 function ListSkeleton() {
   return (
@@ -108,3 +82,5 @@ function ListSkeleton() {
     </div>
   );
 }
+
+    
