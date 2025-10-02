@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Notification } from '@/lib/types';
@@ -16,11 +17,11 @@ interface NotificationListProps {
 }
 
 export function NotificationList({ notifications, onDelete, onClearAll, uniqueAppNames }: NotificationListProps) {
-  const [filterApp, setFilterApp] = useState<string>('');
+  const [filterApp, setFilterApp] = useState<string>('all');
 
-  const filteredNotifications = filterApp
-    ? notifications.filter(n => n.appName === filterApp)
-    : notifications;
+  const filteredNotifications = filterApp === 'all'
+    ? notifications
+    : notifications.filter(n => n.appName === filterApp);
 
   return (
     <div className="mt-8">
@@ -28,13 +29,13 @@ export function NotificationList({ notifications, onDelete, onClearAll, uniqueAp
         <h2 className="text-2xl font-semibold text-primary">Stored Notifications</h2>
         <div className="flex gap-2 items-center w-full sm:w-auto">
           {uniqueAppNames.length > 0 && (
-            <Select value={filterApp} onValueChange={setFilterApp}>
+            <Select value={filterApp} onValueChange={(value) => setFilterApp(value)}>
               <SelectTrigger className="w-full sm:w-[180px] bg-card">
                 <Filter className="mr-2 h-4 w-4 text-muted-foreground" />
                 <SelectValue placeholder="Filter by app..." />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Apps</SelectItem>
+                <SelectItem value="all">All Apps</SelectItem>
                 {uniqueAppNames.map(appName => (
                   <SelectItem key={appName} value={appName}>{appName}</SelectItem>
                 ))}
