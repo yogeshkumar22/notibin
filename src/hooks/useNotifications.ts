@@ -38,12 +38,14 @@ export function useNotifications() {
     }
   }, [notifications, isLoading]);
 
-  const addNotification = useCallback((newNotificationData: Omit<Notification, 'id' | 'timestamp' | 'category'>) => {
+  const addNotification = useCallback((newNotificationData: Omit<Notification, 'id' | 'timestamp'>) => {
     const notification: Notification = {
       ...newNotificationData,
       id: generateId(),
       timestamp: Date.now(),
-      category: newNotificationData.appName, // Use appName as category
+      category: newNotificationData.category || newNotificationData.appName,
+      isRead: newNotificationData.isRead ?? false,
+      priority: newNotificationData.priority || 'normal',
     };
     setNotifications(prev => [notification, ...prev]); // Add to the beginning (newest first)
     return notification;

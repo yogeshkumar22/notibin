@@ -2,19 +2,49 @@
 "use client";
 
 import { NotificationList } from '@/components/notifications/NotificationList';
+import { NotificationForm } from '@/components/notifications/NotificationForm';
 import { useNotifications } from '@/hooks/useNotifications';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
+import { generateContentHash, autoCategorizeNotification, detectPriority, getDefaultAppIcon } from '@/lib/notificationUtils';
 
 export default function NotificationsPage() {
   const { 
     notifications, 
     isLoading, 
+    addNotification,
     deleteNotification, 
     clearAllNotifications,
     getUniqueAppNames 
   } = useNotifications();
   const { toast } = useToast();
+
+  const handleAddNotification = (data: any) => {
+    // Generate content hash for duplicate detection
+    const contentHash = generateContentHash(data);
+    
+    // Auto-categorize if not provided
+    const category = data.category || autoCategorizeNotification(data);
+    
+    // Detect priority if not provided
+    const priority = data.priority || detectPriority(data);
+    
+    // Get default app icon if not provided
+    const appIcon = data.appIcon || getDefaultAppIcon(data.appName);
+    
+    const notification = addNotification({
+      ...data,
+      contentHash,
+      category,
+      priority,
+      appIcon,
+    });
+    
+    toast({
+      title: "Notification Added",
+      description: `Added notification from ${notification.appName}`,
+    });
+  };
 
   const handleDeleteNotification = (id: string) => {
     deleteNotification(id);
@@ -44,6 +74,7 @@ export default function NotificationsPage() {
 
   return (
     <div className="space-y-8">
+      <NotificationForm onAddNotification={handleAddNotification} />
       <NotificationList
         notifications={notifications}
         onDelete={handleDeleteNotification}
