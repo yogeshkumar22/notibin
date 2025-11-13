@@ -21,7 +21,7 @@ export interface AIInsights {
   extractedData?: {
     couponCodes?: string[];
     discounts?: string[];
-    deadlines?: Date[];
+    deadlines?: string[]; // ISO date strings
     prices?: string[];
     links?: string[];
   };
