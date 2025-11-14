@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 import { AppLayout } from '@/components/layout/AppLayout';
 
 export const metadata: Metadata = {
-  title: 'NotiBin - Save Your Notifications',
-  description: 'Easily save, manage, and summarize your notifications.',
+  title: 'NotiBin - Your Personal Notification Manager',
+  description: 'Effortlessly save, organize, search, and analyze your notifications with AI-powered insights and advanced management features.',
 };
 
 export default function RootLayout({

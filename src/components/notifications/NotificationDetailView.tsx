@@ -15,11 +15,13 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 
+import type { AIInsights } from '@/lib/types';
+
 interface NotificationDetailViewProps {
   notification: Notification;
   onDelete: (id: string) => void;
   onUpdateSummary: (id: string, summary: string) => void;
-  onUpdateInsights?: (id: string, insights: any) => void;
+  onUpdateInsights?: (id: string, insights: AIInsights) => void;
 }
 
 export function NotificationDetailView({ notification, onDelete, onUpdateSummary, onUpdateInsights }: NotificationDetailViewProps) {

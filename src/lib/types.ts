@@ -32,6 +32,32 @@ export interface AIInsights {
 export interface ActionSuggestion {
   type: 'reminder' | 'save_deal' | 'reply' | 'open_link' | 'save_coupon';
   description: string;
-  actionData?: any;
+  actionData?: ReminderActionData | SaveDealActionData | ReplyActionData | OpenLinkActionData | SaveCouponActionData;
   priority?: number;
+}
+
+// Action data types for each ActionSuggestion type
+export interface ReminderActionData {
+  reminderTime: string; // ISO date string
+  note?: string;
+}
+
+export interface SaveDealActionData {
+  dealId?: string;
+  dealUrl?: string;
+  expirationDate?: string; // ISO date string
+}
+
+export interface ReplyActionData {
+  replyTo: string; // Email or user ID
+  messageTemplate?: string;
+}
+
+export interface OpenLinkActionData {
+  url: string;
+}
+
+export interface SaveCouponActionData {
+  couponCode: string;
+  expirationDate?: string; // ISO date string
 }

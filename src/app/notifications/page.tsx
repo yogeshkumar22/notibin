@@ -7,6 +7,7 @@ import { useNotifications } from '@/hooks/useNotifications';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 import { generateContentHash, autoCategorizeNotification, detectPriority, getDefaultAppIcon } from '@/lib/notificationUtils';
+import type { Notification } from '@/lib/types';
 
 export default function NotificationsPage() {
   const { 
@@ -19,7 +20,7 @@ export default function NotificationsPage() {
   } = useNotifications();
   const { toast } = useToast();
 
-  const handleAddNotification = (data: any) => {
+  const handleAddNotification = (data: Omit<Notification, 'id' | 'timestamp'>) => {
     // Generate content hash for duplicate detection
     const contentHash = generateContentHash(data);
     

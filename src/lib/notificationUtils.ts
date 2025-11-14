@@ -1,5 +1,4 @@
 import type { Notification } from './types';
-import { createHash } from 'crypto';
 
 /**
  * Generate a content hash for duplicate detection
@@ -22,17 +21,17 @@ export function generateContentHash(notification: Pick<Notification, 'appName' |
  * Check if a notification is a duplicate based on content hash and timestamp
  */
 export function isDuplicate(
-  newNotification: Pick<Notification, 'appName' | 'title' | 'content'>,
+  newNotification: Pick<Notification, 'appName' | 'title' | 'content'> & Partial<Pick<Notification, 'timestamp'>>,
   existingNotifications: Notification[],
   timeWindowMs: number = 60000 // 1 minute window by default
 ): boolean {
   const newHash = generateContentHash(newNotification);
-  const now = Date.now();
+  const newTimestamp = newNotification.timestamp ?? Date.now();
   
   return existingNotifications.some(existing => {
     // Check if hashes match and notification is within time window
     if (existing.contentHash === newHash) {
-      const timeDiff = Math.abs(now - existing.timestamp);
+      const timeDiff = Math.abs(newTimestamp - existing.timestamp);
       return timeDiff < timeWindowMs;
     }
     return false;

@@ -17,8 +17,8 @@ const notificationSchema = z.object({
   title: z.string().min(1, "Title is required"),
   content: z.string().min(1, "Content is required"),
   appIcon: z.string().optional(),
-  imageUrl: z.string().url().optional().or(z.literal('')),
-  deepLink: z.string().url().optional().or(z.literal('')),
+  imageUrl: z.string().url().optional().or(z.literal('')).transform(val => val || undefined),
+  deepLink: z.string().url().optional().or(z.literal('')).transform(val => val || undefined),
   priority: z.enum(['low', 'normal', 'high', 'urgent']).optional(),
 });
 

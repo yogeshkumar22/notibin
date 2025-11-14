@@ -79,6 +79,9 @@ const analyzeNotificationFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await analyzeNotificationPrompt(input);
-    return output!;
+    if (output == null) {
+      throw new Error('AI call failed: output is undefined');
+    }
+    return output;
   }
 );

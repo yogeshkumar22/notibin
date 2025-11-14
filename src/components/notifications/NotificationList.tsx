@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Eraser, Filter, Inbox, Search, SortAsc } from 'lucide-react';
 import { useState, useMemo } from 'react';
 
@@ -145,7 +144,7 @@ export function NotificationList({ notifications, onDelete, onClearAll, uniqueAp
             </Select>
           )}
 
-          <Select value={readFilter} onValueChange={(value: any) => setReadFilter(value)}>
+          <Select value={readFilter} onValueChange={(value: 'all' | 'read' | 'unread') => setReadFilter(value)}>
             <SelectTrigger className="w-full sm:w-[140px]">
               <Filter className="mr-2 h-4 w-4" />
               <SelectValue placeholder="Status" />
@@ -157,7 +156,7 @@ export function NotificationList({ notifications, onDelete, onClearAll, uniqueAp
             </SelectContent>
           </Select>
 
-          <Select value={sortBy} onValueChange={(value: any) => setSortBy(value)}>
+          <Select value={sortBy} onValueChange={(value: 'newest' | 'oldest') => setSortBy(value)}>
             <SelectTrigger className="w-full sm:w-[140px]">
               <SortAsc className="mr-2 h-4 w-4" />
               <SelectValue placeholder="Sort" />

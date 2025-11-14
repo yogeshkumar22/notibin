@@ -47,7 +47,7 @@ export default function NotificationDetailPage() {
     }
   };
 
-  const handleUpdateInsights = (notificationId: string, insights: any) => {
+  const handleUpdateInsights = (notificationId: string, insights: import('@/lib/types').AIInsights) => {
     updateNotification(notificationId, { aiInsights: insights });
     // Re-fetch or update local state to show new insights
     const updatedNotification = getNotificationById(notificationId);

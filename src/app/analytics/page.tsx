@@ -225,7 +225,7 @@ export default function AnalyticsPage() {
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={analytics.byApp}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="name" className="text-xs" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
                   <YAxis />
                   <Tooltip 
                     contentStyle={{ 
@@ -297,7 +297,7 @@ export default function AnalyticsPage() {
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={analytics.byDay}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="day" className="text-xs" />
+                  <XAxis dataKey="day" tick={{ fontSize: 12 }} />
                   <YAxis />
                   <Tooltip 
                     contentStyle={{ 
@@ -335,7 +335,7 @@ export default function AnalyticsPage() {
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={analytics.byHour}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="hour" className="text-xs" interval={2} />
+                  <XAxis dataKey="hour" tick={{ fontSize: 12 }} interval={2} />
                   <YAxis />
                   <Tooltip 
                     contentStyle={{ 

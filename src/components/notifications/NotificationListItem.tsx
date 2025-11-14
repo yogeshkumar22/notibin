@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Trash2, Clock, Eye, AlertCircle, AlertTriangle, Info, ExternalLink, Image as ImageIcon } from 'lucide-react';
+import { Trash2, Clock, Eye, AlertCircle, AlertTriangle, Info, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 import { getDefaultAppIcon } from '@/lib/notificationUtils';
@@ -91,10 +91,13 @@ export function NotificationListItem({ notification, onDelete }: NotificationLis
           <div className="mt-3 relative rounded-md overflow-hidden bg-muted max-w-md">
             <img 
               src={notification.imageUrl} 
-              alt="Notification content" 
+              alt={notification.title ? `Image for notification: ${notification.title}` : `Image for notification: ${notification.content}`} 
               className="w-full h-auto max-h-48 object-cover"
               onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
+                const parent = (e.target as HTMLImageElement).parentElement;
+                if (parent) {
+                  parent.style.display = 'none';
+                }
               }}
             />
           </div>
