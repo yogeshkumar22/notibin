@@ -46,6 +46,15 @@ export default function NotificationDetailPage() {
         setNotification(updatedNotification);
     }
   };
+
+  const handleUpdateInsights = (notificationId: string, insights: import('@/lib/types').AIInsights) => {
+    updateNotification(notificationId, { aiInsights: insights });
+    // Re-fetch or update local state to show new insights
+    const updatedNotification = getNotificationById(notificationId);
+    if (updatedNotification) {
+        setNotification(updatedNotification);
+    }
+  };
   
   // Show overall page loading skeleton if notifications hook is loading
   if (isLoadingNotifications || notification === undefined) {
@@ -101,6 +110,7 @@ export default function NotificationDetailPage() {
         notification={notification}
         onDelete={handleDelete}
         onUpdateSummary={handleUpdateSummary}
+        onUpdateInsights={handleUpdateInsights}
       />
     </div>
   );

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "sample1",
+    "appName": "Amazon",
+    "title": "Flash Sale: 50% Off Electronics",
+    "content": "Hurry! Get 50% off on select electronics. Use code FLASH50 at checkout. Sale ends in 24 hours! Shop laptops, tablets, and more. Limited time offer!",
+    "timestamp": 1705920000000,
+    "category": "Deals & Promotions",
+    "appIcon": "📦",
+    "priority": "high",
+    "isRead": false
+  },
+  {
+    "id": "sample2",
+    "appName": "Gmail",
+    "title": "Meeting Reminder: Project Review",
+    "content": "Your meeting 'Q1 Project Review' starts in 1 hour at 2:00 PM. Location: Conference Room A. Attendees: John, Sarah, Mike. Please review the attached documents before the meeting.",
+    "timestamp": 1705906400000,
+    "category": "Work & Productivity",
+    "appIcon": "📧",
+    "priority": "urgent",
+    "isRead": false
+  },
+  {
+    "id": "sample3",
+    "appName": "Instagram",
+    "title": "New Follower",
+    "content": "Sarah Johnson (@sarahjohnson) started following you. Check out their profile to follow back!",
+    "timestamp": 1705892800000,
+    "category": "Social",
+    "appIcon": "📷",
+    "priority": "normal",
+    "isRead": true
+  },
+  {
+    "id": "sample4",
+    "appName": "Bank of America",
+    "title": "Account Balance Alert",
+    "content": "Your checking account balance has fallen below $100. Current balance: $87.32. Consider transferring funds to avoid overdraft fees.",
+    "timestamp": 1705879200000,
+    "category": "Finance",
+    "appIcon": "🏦",
+    "priority": "high",
+    "isRead": false
+  },
+  {
+    "id": "sample5",
+    "appName": "Slack",
+    "title": "Message from Team Channel",
+    "content": "@everyone Please submit your weekly reports by EOD Friday. Remember to include project updates and any blockers. Thanks!",
+    "timestamp": 1705865600000,
+    "category": "Work & Productivity",
+    "appIcon": "💬",
+    "priority": "normal",
+    "isRead": true
+  },
+  {
+    "id": "sample6",
+    "appName": "Uber Eats",
+    "title": "Your order is on its way!",
+    "content": "Your order from Pizza Palace is being delivered. Driver: John Smith. Estimated arrival: 25 minutes. Track your order in the app.",
+    "timestamp": 1705852000000,
+    "category": "Shopping & Delivery",
+    "appIcon": "🚗",
+    "priority": "normal",
+    "isRead": true
+  },
+  {
+    "id": "sample7",
+    "appName": "LinkedIn",
+    "title": "New job opportunity matches your profile",
+    "content": "Senior Software Engineer at Tech Corp - Remote. $150K-$180K/year. The position matches your skills in React, Node.js, and cloud technologies. Apply now!",
+    "timestamp": 1705838400000,
+    "category": "Work & Productivity",
+    "appIcon": "💼",
+    "priority": "normal",
+    "isRead": false
+  },
+  {
+    "id": "sample8",
+    "appName": "Fitness App",
+    "title": "Daily Goal Achieved! 🎉",
+    "content": "Congratulations! You've reached your daily step goal of 10,000 steps. You walked 10,523 steps today and burned 485 calories. Keep up the great work!",
+    "timestamp": 1705824800000,
+    "category": "Health & Fitness",
+    "appIcon": "💪",
+    "priority": "low",
+    "isRead": true
+  },
+  {
+    "id": "sample9",
+    "appName": "Netflix",
+    "title": "New episodes available",
+    "content": "Season 2 Episode 5 of 'Your Favorite Show' is now available. Continue watching or browse new releases in Action & Adventure.",
+    "timestamp": 1705811200000,
+    "category": "Entertainment",
+    "appIcon": "🎬",
+    "priority": "low",
+    "isRead": true
+  },
+  {
+    "id": "sample10",
+    "appName": "Weather",
+    "title": "Severe Weather Alert",
+    "content": "WEATHER ALERT: Heavy rain expected tomorrow 6 AM - 2 PM. Flood watch in effect. Avoid unnecessary travel. Temperature: 55°F, Wind: 25 mph.",
+    "timestamp": 1705797600000,
+    "category": "News & Updates",
+    "appIcon": "🌤️",
+    "priority": "high",
+    "isRead": false
+  },
+  {
+    "id": "sample11",
+    "appName": "Booking.com",
+    "title": "Booking Confirmation",
+    "content": "Your reservation at Grand Hotel is confirmed! Check-in: Feb 15, 2024. Check-out: Feb 18, 2024. Booking ID: BK123456. Total: $450. View details in the app.",
+    "timestamp": 1705784000000,
+    "category": "Travel",
+    "appIcon": "✈️",
+    "priority": "normal",
+    "isRead": true
+  },
+  {
+    "id": "sample12",
+    "appName": "WhatsApp",
+    "title": "Mom",
+    "content": "Don't forget about dinner tomorrow at 7 PM. Bring dessert! Let me know if you can't make it. Love you! ❤️",
+    "timestamp": 1705770400000,
+    "category": "Social",
+    "appIcon": "💬",
+    "priority": "normal",
+    "isRead": false
+  }
+]

@@ -16,6 +16,10 @@ const notificationSchema = z.object({
   appName: z.string().min(1, "App name is required"),
   title: z.string().min(1, "Title is required"),
   content: z.string().min(1, "Content is required"),
+  appIcon: z.string().optional(),
+  imageUrl: z.string().url().optional().or(z.literal('')).transform(val => val || undefined),
+  deepLink: z.string().url().optional().or(z.literal('')).transform(val => val || undefined),
+  priority: z.enum(['low', 'normal', 'high', 'urgent']).optional(),
 });
 
 type NotificationFormData = z.infer<typeof notificationSchema>;
@@ -31,6 +35,10 @@ export function NotificationForm({ onAddNotification }: NotificationFormProps) {
       appName: '',
       title: '',
       content: '',
+      appIcon: '',
+      imageUrl: '',
+      deepLink: '',
+      priority: 'normal',
     },
   });
 
